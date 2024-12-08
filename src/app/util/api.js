@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_KEY = process.env.NEXT_PUBLIC_OMDB_API_KEY;
-const BASE_URL = 'https://www.omdbapi.com/';
+const BASE_URL = process.env.NEXT_PUBLIC_OMDB_BASE_URL;
 
 export const fetchData = async ({ keyword = "Pokemon", page = 1, type = null, year = null }) => {
     const paramsObject = {
