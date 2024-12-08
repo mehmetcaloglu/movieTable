@@ -63,19 +63,30 @@ export default function TablePage() {
         }
     }, [currentPageNumber, type, year, immediateSearch]);
 
+    useEffect(() => {
+        if (searchKeyword !== "") {
+            debouncedSearch(searchKeyword);
+        }
+    }, [searchKeyword, debouncedSearch]);
+
     var columns = [
         {
-            "header": "Movie Title",
+            "header": "Film Adı",
             "accessorFn": (item) => item.Title,
             "type": "string"
         },
         {
-            "header": "Year",
+            "header": "Yayın Tarihi",
+            "accessorFn": (item) => item.Released,
+            "type": "string"
+        },
+        {
+            "header": "Yıl",
             "accessorFn": (item) => item.Year,
             "type": "string"
         },
         {
-            "header": "Type",
+            "header": "Tür",
             "accessorFn": (item) => item.Type,
             "type": "string"
         },

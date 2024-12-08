@@ -19,8 +19,21 @@ export const fetchData = async ({ keyword = "Pokemon", page = 1, type = null, ye
         });
 
         if (response.data && response.data.Response === "True") {
+            // Her film için detay bilgilerini al
+            const moviesWithDetails = await Promise.all(
+                response.data.Search.map(async (movie) => {
+                    const detailResponse = await axios.get(BASE_URL, {
+                        params: {
+                            apikey: API_KEY,
+                            i: movie.imdbID
+                        }
+                    });
+                    return detailResponse.data;
+                })
+            );
+
             return {
-                data: response.data.Search,
+                data: moviesWithDetails,
                 totalResults: parseInt(response.data.totalResults),
                 page: {
                     totalPages: Math.ceil(parseInt(response.data.totalResults) / 10)

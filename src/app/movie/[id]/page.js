@@ -12,7 +12,7 @@ export default function MovieDetail({ params }) {
 
     useEffect(() => {
         if (!movieId) return;
-        
+
         fetchMovieDetails(movieId)
             .then(data => {
                 if (data) {
@@ -95,7 +95,7 @@ const DetailItem = ({ label, value }) => {
     if (!value || value === "N/A") return null;
 
     return (
-        <div className="border-b pb-2">
+        <div className="pb-2">
             <span className="font-semibold">{label}: </span>
             <span className="text-gray-700">{value}</span>
         </div>
