@@ -26,7 +26,8 @@ npm install
 
 3. Create a `.env.local` file in the root directory and add your OMDB API key:
 ```bash
-NEXT_PUBLIC_OMDB_API_KEY=your_api_key_here
+NEXT_PUBLIC_OMDB_API_KEY=your_api_key_here // for this case study, .env file involved to git 
+NEXT_PUBLIC_OMDB_BASE_URL=https://www.omdbapi.com/
 ```
 
 
